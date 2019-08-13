@@ -1,0 +1,176 @@
+.nav-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #303f9f;
+
+  color: white;
+}
+
+.nav {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav.mobile {
+  justify-content: space-between;
+}
+
+.nav-element {
+  cursor: pointer;
+}
+
+.nav .nav-element {
+  margin: 0 2em;
+  display: inline-block;
+  animation: appear-in 0.5s;
+  font-weight: 400;
+}
+
+.nav .nav-element:hover {
+  opacity: 0.8;
+}
+
+.nav-element.nav-logo {
+  font-weight: 900;
+  min-width: 60px;
+}
+
+.mobile .nav-element {
+  margin: 0 1em;
+}
+
+.nav-element:first-child {
+  /* Keep the same margin left for the logo (which is the first element) */
+  /* This must be improved if the logo is not always the first element */
+  margin-left: 2em;
+}
+
+.App.push {
+  animation: pushCanvas 0.3s;
+  transform: translateX(-200px);
+  overflow: hidden;
+  position: fixed;
+}
+
+.App.hide {
+  animation: hideCanvas 0.33s;
+  overflow: hidden;
+  position: fixed;
+}
+
+.content {
+  /* Website content div */
+  height: 100%;
+  padding: 0em 2em;
+  padding-top: 60px;
+  overflow: auto;
+}
+
+/* Side Nav CSS */
+
+.sidemenuwrap {
+  /* Div that wrap the side nav */
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  right: 0;
+}
+
+.nav-side {
+  position: absolute;
+  z-index: 10;
+  background: #263238;
+  color: white;
+  height: 100%;
+  width: 200px;
+  right: 0;
+  animation: showMenu 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 60px;
+}
+
+.nav-side .nav-element {
+  padding: 1em 0.8em;
+  text-align: right;
+
+  transition: background-color 0.2s;
+}
+
+.nav-side .nav-element:hover {
+  background: #33434b;
+}
+
+.hide .nav-side {
+  animation: hideMenu 0.33s;
+}
+
+.nav-side-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.nav-side-close:hover {
+  opacity: 0.6;
+}
+
+.burger-menu {
+  cursor: pointer;
+}
+
+.burger-menu:hover {
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes showMenu {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes hideMenu {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}
+@keyframes pushCanvas {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-200px);
+  }
+}
+@keyframes hideCanvas {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes appear-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
