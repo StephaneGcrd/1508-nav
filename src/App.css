@@ -1,5 +1,19 @@
 @import url("./navigation/css/nav.css");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&display=swap");
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Quicksand", sans-serif;
   margin: 0;
+  background-color: #64b5f6;
+}
+
+.content {
+  margin: 1em;
+}
+
+.text-block {
+  background: white;
+  padding: 0.5em 1.5em;
+  border-radius: 10px;
+  box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.1);
 }

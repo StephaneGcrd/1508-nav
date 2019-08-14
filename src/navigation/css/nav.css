@@ -1,11 +1,6 @@
 .nav-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 60px;
   width: 100%;
-  background-color: #303f9f;
-
   color: white;
 }
 
@@ -23,16 +18,26 @@
 
 .nav-element {
   cursor: pointer;
+  font-weight: 700;
 }
 
 .nav .nav-element {
   margin: 0 2em;
   display: inline-block;
   animation: appear-in 0.5s;
-  font-weight: 400;
+  transition: all 0.2s;
+  padding-bottom: 5px;
+  border-bottom: 4px solid transparent;
+}
+
+.nav .nav-element.burger-menu:hover {
+  border-bottom: 4px solid transparent;
 }
 
 .nav .nav-element:hover {
+  border-bottom: 4px solid white;
+}
+.nav .nav-element:active {
   opacity: 0.8;
 }
 
@@ -53,7 +58,7 @@
 
 .App.push {
   animation: pushCanvas 0.3s;
-  transform: translateX(-200px);
+  transform: translateX(-100px);
   overflow: hidden;
   position: fixed;
 }
@@ -68,7 +73,7 @@
   /* Website content div */
   height: 100%;
   padding: 0em 2em;
-  padding-top: 60px;
+  /*padding-top: 60px;*/
   overflow: auto;
 }
 
@@ -78,17 +83,16 @@
   /* Div that wrap the side nav */
   position: fixed;
   height: 100%;
-  width: 200px;
   right: 0;
 }
 
 .nav-side {
   position: absolute;
   z-index: 10;
-  background: #263238;
+  background-color: #64b5f6;
   color: white;
   height: 100%;
-  width: 200px;
+  width: 100px;
   right: 0;
   animation: showMenu 0.3s;
   display: flex;
@@ -102,10 +106,14 @@
   text-align: right;
 
   transition: background-color 0.2s;
+  border-right: 4px solid transparent;
 }
 
 .nav-side .nav-element:hover {
-  background: #33434b;
+  border-right: 4px solid white;
+}
+.nav-side .nav-element:active {
+  opacity: 0.8;
 }
 
 .hide .nav-side {
@@ -126,16 +134,24 @@
 
 .burger-menu {
   cursor: pointer;
+  transition: opacity 0.2s;
 }
 
 .burger-menu:hover {
   opacity: 0.6;
 }
 
+.push .nav-element.burger-menu {
+  opacity: 0;
+}
+
+.push .nav-element.burger-menu:hover {
+  opacity: 0;
+}
 /* Animations */
 @keyframes showMenu {
   0% {
-    transform: translateX(200px);
+    transform: translateX(100px);
   }
   100% {
     transform: translateX(0px);
@@ -146,7 +162,7 @@
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(200px);
+    transform: translateX(100px);
   }
 }
 @keyframes pushCanvas {
@@ -154,12 +170,12 @@
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(-200px);
+    transform: translateX(-100px);
   }
 }
 @keyframes hideCanvas {
   0% {
-    transform: translateX(-200px);
+    transform: translateX(-100px);
   }
   100% {
     transform: translateX(0px);
